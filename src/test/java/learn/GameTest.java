@@ -25,10 +25,54 @@ class GameTest {
         assertEquals(String.format("You both picked %s, Tie!", PlayerHelper.SCISSORS), res3);
     }
 
+
+
     //happy path - win
+
+    @Test
+    void rockShouldBeatScissors(){
+        String res = game.determineWinner(PlayerHelper.ROCK, PlayerHelper.SCISSORS);
+        assertNotNull(res);
+        assertEquals(String.format("computer picked %s and you picked %s, you win!", PlayerHelper.SCISSORS, PlayerHelper.ROCK), res);
+    }
+    @Test
+    void scissorsShouldBeatPaper(){
+        String res = game.determineWinner(PlayerHelper.SCISSORS, PlayerHelper.PAPER);
+        assertNotNull(res);
+        assertEquals(String.format("computer picked %s and you picked %s, you win!", PlayerHelper.PAPER, PlayerHelper.SCISSORS), res);
+    }
+    @Test
+    void paperShouldBeatRock(){
+        String res = game.determineWinner(PlayerHelper.PAPER, PlayerHelper.ROCK);
+        assertNotNull(res);
+        assertEquals(String.format("computer picked %s and you picked %s, you win!", PlayerHelper.ROCK, PlayerHelper.PAPER), res);
+    }
 
 
     //losses
+    @Test
+    void rockShouldNotBeatPaper(){
+        String res = game.determineWinner(PlayerHelper.ROCK, PlayerHelper.PAPER);
+        assertNotNull(res);
+        assertEquals(String.format(String.format("computer picked %s and you picked %s, you lose!", PlayerHelper.PAPER, PlayerHelper.ROCK)), res);
+
+    }
+    @Test
+    void paperShouldNotBeatScissors(){
+        String res = game.determineWinner(PlayerHelper.PAPER, PlayerHelper.SCISSORS);
+        assertNotNull(res);
+        assertEquals(String.format(String.format("computer picked %s and you picked %s, you lose!", PlayerHelper.SCISSORS, PlayerHelper.PAPER)), res);
+
+
+    }
+    @Test
+    void scissorsShouldNotBeatRock(){
+        String res = game.determineWinner(PlayerHelper.SCISSORS, PlayerHelper.ROCK);
+        assertNotNull(res);
+        assertEquals(String.format(String.format("computer picked %s and you picked %s, you lose!", PlayerHelper.ROCK, PlayerHelper.SCISSORS)), res);
+
+
+    }
 
 
 }
