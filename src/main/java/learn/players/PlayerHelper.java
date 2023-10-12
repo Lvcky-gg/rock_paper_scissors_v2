@@ -11,6 +11,12 @@ public class PlayerHelper {
     public static final String SCISSORS = "Scissors: " + SCISSORS_ICON;
 
     //method that gets players move
+    /*
+     * Gets the player's move based on the choice
+     * @param choice
+     * @return String
+     * @example getPlayerMove(1) -> "Rock"
+     */
     public static String getPlayerMove(int choice) {
         String move = null;
         switch (choice) {

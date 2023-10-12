@@ -23,6 +23,13 @@ public class Game {
         String computerMove = computer.generateMove();
         System.out.println(determineWinner(humanMove, computerMove));
     }
+    /*
+     * Determines the winner of the game
+     * @param humanMove
+     * @param computerMove
+     * @return String
+     * @example determineWinner("rock", "paper") -> "computer picked paper and you picked rock, you lose!"
+     */
     public String determineWinner(String humanMove, String computerMove){
         if(computerMove.equals(humanMove)){
             return String.format("You both picked %s, Tie!", humanMove);
